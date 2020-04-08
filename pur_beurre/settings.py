@@ -87,6 +87,18 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',  # on utilise l'adaptateur postgresql
+#         'NAME': 'pur_beurre',  # le nom de notre base de donnees creee precedemment
+#         # attention : remplacez par votre nom d'utilisateur
+#         'USER': os.environ.get('DB_USER'),
+#         'PASSWORD': os.environ.get('DB_PASSWORD'),
+#         'HOST': '',
+#         'PORT': '5432',
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
