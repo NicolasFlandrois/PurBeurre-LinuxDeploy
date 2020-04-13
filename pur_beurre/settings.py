@@ -25,8 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
+if os.environ.get('ENV') == 'PRODUCTION':
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = []  # Update Here!
 
@@ -92,9 +94,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',  # on utilise l'adaptateur postgresql
         'NAME': 'pur_beurre',  # le nom de notre base de donnees creee precedemment
         # attention : remplacez par votre nom d'utilisateur
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': '',
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASS'),
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -150,12 +152,12 @@ if os.environ.get('ENV') == 'PRODUCTION':
     )
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
+    # db_from_env = dj_database_url.config(conn_max_age=500)
+    # DATABASES['default'].update(db_from_env)
 
-# STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
