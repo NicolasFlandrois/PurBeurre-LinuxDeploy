@@ -36,5 +36,6 @@ class Command(BaseCommand):
                     print(f'This product already part of this database :    \
 {Product.objects.get(ean=prod["ean"]).name} (EAN: {prod["ean"]}).')
 
-        except:
+        except Exception as e:
+            print(e)
             raise CommandError('Something went wrong here')
