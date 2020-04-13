@@ -1,5 +1,7 @@
 from . import *
 
+import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
