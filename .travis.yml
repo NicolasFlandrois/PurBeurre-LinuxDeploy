@@ -15,7 +15,4 @@ services:
 env: DJANGO_SETTINGS_MODULE=pur_beurre.travis
 
 script:
-  - ./manage.py collectstatic
-  - ./manage.py migrate
-  - ./manage.py update_snacks
   - ./manage.py test
