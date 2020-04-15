@@ -1,34 +1,29 @@
 language: python
+
 python:
+
   - '3.7'
 
+# safelist
+
 branches:
+
   only:
+
     - travis
 
-env:
-  DJANGO_SETTINGS_MODULE="pur_beurre.travis_settings"
-  global:
-    - ENV=PRODUCTION
-    - MYSQL_USER=travis
-    - MYSQL_PASS=travis123
-    - SECRET_KEY=Fvm_3tBlsMcrEg-3cNGQwb-FVC-SXuS4wcrRvLUaSJF9on3mem_39Sg1BjtLaZRivs
+
+before_script:
+
+  - pip install -r requirements.txt
+
+
+env: DJANGO_SETTINGS_MODULE="pur_beurre.travis_settings"
 
 services:
+
   - mysql
 
-# before_install:
-#   - sudo mysql -e "grant all privileges on *.* to travis@localhost identified by 'travis123' with grant option;"
-#   - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('123123') where User='travis'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-#   - sudo mysql_upgrade -u travis -p123123
-#   - sudo service mysql restart
-#   - mysql -e 'CREATE DATABASE IF NOT EXISTS pur_beurre;'
-
-# before_script:
-install:
-  - pip3 install coverage
-  - pip3 install -r requirements.txt
-
 script:
-  - python3 ./manage.py test
-  - coverage run manage.py test
+
+  - python manage.py test
