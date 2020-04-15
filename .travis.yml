@@ -6,8 +6,9 @@ branches:
   only:
     - travis
 
-before_script:
-  - pip install -r requirements.txt
+# before_script:
+  - pip3 install coverage
+  - pip3 install -r requirements.txt
 
 services:
   - pysql
@@ -16,3 +17,4 @@ env: DJANGO_SETTINGS_MODULE=pur_beurre.travis
 
 script:
   - python3 ./manage.py test
+  - coverage run manage.py test
