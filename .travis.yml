@@ -7,13 +7,23 @@ branches:
     - travis
 
 # before_script:
+install:
   - pip3 install coverage
   - pip3 install -r requirements.txt
 
 services:
-  - pysql
+  - mysql
 
-env: DJANGO_SETTINGS_MODULE=pur_beurre.travis
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS pur_beurre;'
+
+env:
+  # DJANGO_SETTINGS_MODULE=pur_beurre.travis
+  global:
+    - ENV=PRODUCTION
+    - MYSQL_USER=TRAVIS
+    - MYSQL_PASS=TRAVIS123
+    - SECRET_KEY=Fvm_3tBlsMcrEg-3cNGQwb-FVC-SXuS4wcrRvLUaSJF9on3mem_39Sg1BjtLaZRivs
 
 script:
   - python3 ./manage.py test
