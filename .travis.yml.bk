@@ -6,23 +6,26 @@ branches:
   only:
     - travis
 
+services:
+  - mysql
+
 env:
-  # DJANGO_SETTINGS_MODULE=pur_beurre.travis
+  - DJANGO=1.8
+  - DB=mysql
+  - DJANGO_SETTINGS_MODULE=pur_beurre.travis
   global:
     - ENV=PRODUCTION
     - MYSQL_USER=travis
     - MYSQL_PASS=travis123
     - SECRET_KEY=Fvm_3tBlsMcrEg-3cNGQwb-FVC-SXuS4wcrRvLUaSJF9on3mem_39Sg1BjtLaZRivs
 
-services:
-  - mysql
 
 before_install:
   - sudo mysql -e "grant all privileges on *.* to travis@localhost identified by 'travis123' with grant option;"
   - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('123123') where User='travis'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
   - sudo mysql_upgrade -u travis -p123123
   - sudo service mysql restart
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS pur_beurre;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS pur_beurre;' -u travis
 
 # before_script:
 install:
