@@ -18,6 +18,7 @@ services:
   - mysql
 
 before_install:
+  - sudo mysql -e "grant all privileges on *.* to travis@localhost identified by 'travis123' with grant option;"
   - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('123123') where User='travis'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
   - sudo mysql_upgrade -u travis -p123123
   - sudo service mysql restart
