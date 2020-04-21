@@ -1,7 +1,7 @@
-# Pur-Beurre
-OC - Project 8 - Python 3.7, Django, PostgreSQL, HTML/CSS/JS/Bootstrap
+# Pur-Beurre Linux Deployment
+OC - Project 10 [Fork of P08]- Deployment of a Django Application on a Linux Server.
 
-![](https://img.shields.io/badge/Python-%3E%3D3.7-yellow.svg)  ![](https://img.shields.io/badge/Django-2.2.8-brightgreen.svg) ![](https://img.shields.io/badge/local%20database-PostgreSQL-blue.svg)
+![](https://img.shields.io/badge/Python-%3E%3D3.7-yellow.svg)  ![](https://img.shields.io/badge/Django-2.2.8-brightgreen.svg) ![](https://img.shields.io/badge/local%20database-MySQL-blue.svg)
 
 -----------------------
 
@@ -13,7 +13,9 @@ If the user created its account and profile, it can also add a product to its fa
 
 ----------------------
 
-A specific branch of this project is managed to be deployed on Heroku plateform, and using AWS S3 storage for media contents.
+This project is a fork of "Pur Beurre" project (P08), and is managed to be deployed on Linux Cloud Computing plateform.
+
+(Changes from previous Dev project, this fork is the Production project. Continuous Integration is ensured by a TRAVIS CI script. Also the database changed for MySQL. All other aspects of Deployments are not registered here, but on its Linux Server. Deployement used Nginx, Gunicorn, Supervisor, Linux Server Ubuntu 19.10, Postfix, Django and Python 3.7)
 
 ----------------------
 
