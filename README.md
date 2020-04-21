@@ -1,7 +1,7 @@
 # Pur-Beurre Linux Deployment
 OC - Project 10 [Fork of P08]- Deployment of a Django Application on a Linux Server.
 
-![](https://img.shields.io/badge/Python-%3E%3D3.7-yellow.svg)  ![](https://img.shields.io/badge/Django-2.2.8-brightgreen.svg) ![](https://img.shields.io/badge/local%20database-MySQL-blue.svg)
+![](https://img.shields.io/badge/Python-%3E%3D3.7-yellow.svg)  ![](https://img.shields.io/badge/Django-%3E%3D2.2.10-brightgreen.svg) ![](https://img.shields.io/badge/local%20database-MySQL-blue.svg)
 
 -----------------------
 
